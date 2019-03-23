@@ -1,3 +1,6 @@
+node_modules
+fazenda
+
 # Logs
 logs
 *.log
