@@ -1,26 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb').MongoClient;
-
+const bodyParser = require('body-parser');
+const app = express();
+app.use(bodyParser.urlencoded({extended: true}));
 /**
  * Conecção em banco de dados
  */
 const url = 'mongodb://127.0.0.1:27017/custobov';
-mongo.connect(url, {useNewUrlParser: true});
+const db = mongo.connect(url, {useNewUrlParser: true});
 
-router.get('/', function(err, res, next) {
-    res.send("Meu arquivo Node")
-
+app.post('/', function(req, res) {
+    res.send("Meu arquivo Node com o banco de dados");
+    console.log(req.body);
 })
 
-
-router.post('/show', (req, res) => {
-    db.collection('fazenda').save(req.body, (err, result) => {
-        if(err) return console.log(err)
-
-        console.log('salvo no banco de dados')
-        res.redirect('/')
-    })
-})
-
-module.exports = router;
+module.exports = app;
