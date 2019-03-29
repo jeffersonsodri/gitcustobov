@@ -13,6 +13,8 @@ const db = mongo.connect(url, {useNewUrlParser: true});
 app.post('/', function(req, res) {
     res.send("Meu arquivo Node com o banco de dados");
     console.log(req.body);
-})
+});
+
+
 
 module.exports = app;
