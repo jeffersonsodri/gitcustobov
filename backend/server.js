@@ -34,4 +34,4 @@ app.use('/api', router);
 //rotas da API
 const fazenda = require('./banco/bancoService');
 
-fazenda.register(router, '/fazenda');
+fazenda.register(router, '/fazendas');

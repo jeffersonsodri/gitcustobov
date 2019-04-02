@@ -9,4 +9,4 @@ const fazendaSchema = new mongoose.Schema({
     cidade: { type: String, required: true }
 })
 
-module.exports = restful.model('fazenda', fazendaSchema);
+module.exports = restful.model('fazendas', fazendaSchema);

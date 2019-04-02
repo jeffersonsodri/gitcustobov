@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "5ca2c3749baf7a62ac58f4bc",
+        "nomeFazenda": "Capricornio",
+        "proprietario": "Êmille Souza Rodrigues",
+        "tamanho": "15",
+        "estado": "Rio Grande do Sul",
+        "cidade": "Canela",
+        "__v": 0
+    },
+    {
+        "_id": "5ca2c40f15f44161280013c1",
+        "nomeFazenda": "Capricornio",
+        "proprietario": "Êmille Souza Rodrigues",
+        "tamanho": "15",
+        "estado": "Rio Grande do Sul",
+        "cidade": "Canela",
+        "__v": 0
+    },
+    {
+        "_id": "5ca2c58715f44161280013c2",
+        "nomeFazenda": "Fazenda da Felicidade",
+        "proprietario": "Elza Aparecida Souza Santos",
+        "tamanho": "10",
+        "estado": "Minas Gerais",
+        "cidade": "Campanha",
+        "__v": 0
+    },
+    {
+        "_id": "5ca2d4078d21844ad8c6c3fd",
+        "nomeFazenda": "Fazenda da Alegria",
+        "proprietario": "Elza Aparecida Souza ",
+        "tamanho": "14",
+        "estado": "Minas Gerais",
+        "cidade": "Campanha",
+        "__v": 0
+    }
+]
