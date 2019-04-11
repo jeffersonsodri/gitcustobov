@@ -1,0 +1,104 @@
+{
+    "fazenda": "X",
+    "ano": 2014,
+    "municipio": "Campo Grande",
+    "touro": {
+        "touroPesoMedio": 3,
+        "touroCabecaInicial": 3,
+        "touroCabecaFinal": 3,
+        "touroValor": 3
+    },
+    "vacaMatriz": {
+        "vacaMatrizPesoMedio": 3,
+        "vacaMatrizCabecaInicial": 3,
+        "vacaMatrizCabecaFinal": 3,
+        "vacaMatrizValor": 3
+    },
+    "femea36": {
+        "femeas36PesoInicial": 3,
+        "femeas36PesoFinal": 3,
+        "femeas36Valor": 3,
+        "femeas36CabecasInicial": 3,
+        "femeas36CabecasFinal": 3
+    },
+    "femea2436": {
+        "femeas2436PesoInicial": 3,
+        "femeas2436PesoFinal": 3,
+        "femeas2436Valor": 3,
+        "femeas2436CabecasInicial": 3,
+        "femeas2436CabecasFinal": 3
+    },
+    "femea1224": {
+        "femeas1224PesoInicial": 3,
+        "femeas1224PesoFinal": 3,
+        "femeas1224Valor": 3,
+        "femeas1224CabecasInicial": 3,
+        "femeas1224CabecasFinal": 3
+    },
+    "femea012": {
+        "femeas012PesoInicial": 3,
+        "femeas012PesoFinal": 3,
+        "femeas012Valor": 3,
+        "femeas012CabecasInicial": 3,
+        "femeas012CabecasFinal": 3
+    },
+    "macho012": {
+        "machos012PesoInicial": 3,
+        "machos012PesoFinal": 3,
+        "machos012Valor": 3,
+        "machos012CabecasInicial": 3,
+        "machos012CabecasFinal": 3
+    },
+    "macho1224": {
+        "machos1224PesoInicial": 3,
+        "machos1224PesoFinal": 3,
+        "machos1224Valor": 3,
+        "machos1224CabecasInicial": 3,
+        "machos1224CabecasFinal": 3
+    },
+    "macho2436": {
+        "machos2436PesoInicial": 3,
+        "machos2436PesoFinal": 3,
+        "machos2436Valor": 3,
+        "machos2436CabecasInicial": 3,
+        "machos2436CabecasFinal": 3
+    },
+    "macho36": {
+        "machos36PesoInicial": 3,
+        "machos36PesoFinal": 3,
+        "machos36Valor": 3,
+        "machos36CabecasInicial": 3,
+        "machos36CabecasFinal": 3
+    },
+    "rebanhoMedioAnualEstimadoCabeca": 34,
+    "rebanhoMedioAnualEstimadoUA": 43
+}
+
+
+
+db.dadosrebanhos.aggregate([{
+        $project: {
+            touro: {
+                $sum: "$touro.touroCabecaInicial"
+            },
+            vaca: {
+                $sum: "$femea36.femeas36PesoInicial"
+            }
+        },
+    },
+    {
+        $group: {
+            _id: null,
+            touro: {
+                $sum: "$touro"
+            },
+            vaca: {
+                $sum: "$vaca"
+            }
+        }
+    }
+]) {
+    "_id": null,
+    "touro": 4444444,
+    "vaca": 3
+}
