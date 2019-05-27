@@ -956,10 +956,9 @@
                     v-model="formulario.rebanhoMedioAnualEstimadoUA"
                   ></v-text-field>
                 </v-flex>
-                
               </v-layout>
-              <v-flex  text-md-center text-sm-center text-xs-center>
-               <v-btn href="#graficos_do_rebanho" color="primary">Ir para Gráficos do Rebanho</v-btn>
+              <v-flex text-md-center text-sm-center text-xs-center>
+                <v-btn href="#graficos_do_rebanho" color="primary">Ir para Gráficos do Rebanho</v-btn>
               </v-flex>
             </v-expansion-panel-content>
           </v-expansion-panel>
@@ -1051,7 +1050,6 @@
                   ></v-text-field>
                 </v-flex>
               </v-layout>
-             
             </v-expansion-panel-content>
           </v-expansion-panel>
 
@@ -2104,21 +2102,20 @@
                   </v-flex>
                 </v-flex>
               </v-layout>
-<v-flex  text-md-center text-sm-center text-xs-center>
-            <v-btn href="#graficos_das_receitas"  color="primary">Ir para Gráficos das Receitas</v-btn>
-</v-flex>
+              <v-flex text-md-center text-sm-center text-xs-center>
+                <v-btn href="#graficos_das_receitas" color="primary">Ir para Gráficos das Receitas</v-btn>
+              </v-flex>
             </v-expansion-panel-content>
           </v-expansion-panel>
 
           <v-expansion-panel v-model="panel[7]" expand class="panel">
             <v-expansion-panel-content>
               <v-layout row wrap>
-              <v-flex md6 text-xs-center>
-                
-                  <v-btn @click="clear" outline color="primary" >Limpar</v-btn>
-              </v-flex>
-              <v-flex md6 text-xs-center>
-                  <v-btn  type="submit" color="success">Carregar Gráficos{{form}}</v-btn>
+                <v-flex md6 text-xs-center>
+                  <v-btn @click="clear" outline color="primary">Limpar</v-btn>
+                </v-flex>
+                <v-flex md6 text-xs-center>
+                  <v-btn type="submit" color="success">Carregar Gráficos{{form}}</v-btn>
                 </v-flex>
               </v-layout>
             </v-expansion-panel-content>
@@ -2128,12 +2125,28 @@
         </v-form>
       </v-content>
     </v-container>
+    <v-btn
+      absolute
+      fab
+      transition="scale-transition"
+      right
+      dark
+      color="teal"
+      @click="none"
+      class="botaoNone"
+    >
+      <v-icon dark>remove</v-icon>
+    </v-btn>
+    <v-btn fab dark color="indigo">
+      <v-icon dark>add</v-icon>
+    </v-btn>
   </v-formulario>
 </template>
 <script>
 import Formulario from "../class/Formulario.js";
 import Dictionary from "../class/Dictionary.js";
 import PanelGraficosRebanho from "../components/panel/PanelGraficosRebanho.vue";
+import PanelGraficosRebanhoVue from "../components/panel/PanelGraficosRebanho.vue";
 export default {
   components: {
     "panel-graficos-rebanho": PanelGraficosRebanho
@@ -2146,7 +2159,7 @@ export default {
   data: () => ({
     formulario: new Formulario(),
     forme: "",
-    panel: [1, 1, 1, 1, 1, 1, 1, 0]
+    panel: []
   }),
 
   updated() {
@@ -2184,7 +2197,7 @@ export default {
           db.simulacao
             .put({ id: 1, formularioDB: this.formulario })
             .then(function() {
-               window.location.href = '/#/';
+              window.location.href = "/#/";
               document.location.reload(true);
             });
         }
@@ -2192,15 +2205,24 @@ export default {
     },
     clear() {
       this.formulario = new Formulario();
+    },
+    none() {
+      this.panel = [];
+      PanelGraficosRebanhoVue.panel = [1];
     }
   }
 };
 </script>
 <style scoped>
+h2 {
+  color: #00695c;
+}
+
+.botaoNone {
+  border: solid black 1px;
+}
+
 @media screen and (max-width: 991px) {
-  h2 {
-    color: #00695c;
-  }
   .container {
     position: relative;
     text-align: center;

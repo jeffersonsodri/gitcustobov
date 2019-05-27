@@ -5,11 +5,22 @@
       <br>
 
       <panel-tabela-rebanho-reproducao/>
-
+      <panel-tabela-rebanho-recria-engorda/>
       <panel-tabela-rebanho-total/>
-
       <panel-graficos-rebanho/>
     </v-content>
+    <v-btn
+      absolute
+      fab
+      transition="scale-transition"
+      right
+      dark
+      color="teal"
+      @click="none"
+      class="botaoNone"
+    >
+      <v-icon dark>remove</v-icon>
+    </v-btn>
   </v-container>
 </template>
 <script>
@@ -29,20 +40,24 @@ export default {
   },
 
   data: () => ({
-    panel: [1, 1, 1, 0],
+    panel: [],
     formulario: "",
     resultadoCalculoReproducao: "",
     form: "",
     active: null
-  })
+  }),
+  methods: {
+    none() {
+      this.panel = [];
+    }
+  }
 };
 </script>
 <style scoped>
+h2 {
+  color: #00695c;
+}
 @media screen and (max-width: 991px) {
-  h2 {
-    color: #00695c;
-  }
-
   .container {
     position: absolute;
     padding: 1%;

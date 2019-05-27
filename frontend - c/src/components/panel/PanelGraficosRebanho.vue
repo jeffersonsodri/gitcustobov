@@ -30,33 +30,28 @@
               <tab-grafico-composicao-do-rebanho-por-ua/>
             </v-card>
           </v-flex>
-          </v-layout>
-           </v-container>
-        
+        </v-layout>
+      </v-container>
 
-        <v-container grid-list-md text-xs-center text-md-center>
+      <v-container grid-list-md text-xs-center text-md-center>
         <v-layout row wrap>
-      <div  class="grafico1">
-        
-        <v-layout >
-<v-flex xs12 sm12 md12> 
-            <div class="divider2">
-              <span>
-                <b>Valor (R$) do Rebanho Médio Por Categoria Animal</b>
-              </span>
-            </div>
-            <v-divider></v-divider>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-categoria-animal/>
-            </v-card>
-</v-flex>
+          <div class="grafico1">
+            <v-layout>
+              <v-flex xs12 sm12 md12>
+                <div class="divider2">
+                  <span>
+                    <b>Valor (R$) do Rebanho Médio Por Categoria Animal</b>
+                  </span>
+                </div>
+                <v-divider></v-divider>
+                <v-card>
+                  <tab-grafico-composicao-do-rebanho-por-categoria-animal/>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </div>
         </v-layout>
-        
-      
-      </div>
-        </v-layout>
-        </v-container>
-      
+      </v-container>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -74,11 +69,14 @@ export default {
   },
 
   data: () => ({
-    panel: [0]
+    panel: [1]
   })
 };
 </script>
 <style scoped>
+h2 {
+  color: #00695c;
+}
 @media screen and (max-width: 991px) {
   .grafico {
     margin-top: 5%;
