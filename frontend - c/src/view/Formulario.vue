@@ -5,7 +5,7 @@
         <h1>Está Pronto Para Fazer Sua Simulação?</h1>
 
         <v-form class="form" @submit.prevent="grava()">
-          <v-expansion-panel class="panel" v-model="panel[0]" expand>
+          <v-expansion-panel class="panel" v-model="panel[0]" id="panel0" expand>
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados Iniciais</h2>
@@ -56,7 +56,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[1]" expand class="panel">
+          <v-expansion-panel v-model="panel[1]" id="panel1" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados Do Rebanho de Reprodução</h2>
@@ -209,7 +209,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[2]" expand class="panel">
+          <v-expansion-panel v-model="panel[2]" id="panel2" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados Do Rebanho de Recria</h2>
@@ -963,7 +963,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[3]" expand class="panel">
+          <v-expansion-panel v-model="panel[3]" id="panel3" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados das Receitas - Pró-Labore</h2>
@@ -1053,7 +1053,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[4]" expand class="panel">
+          <v-expansion-panel v-model="panel[4]" id="panel4" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados das Receitas - Bovinos Para Outros Destinos</h2>
@@ -1574,7 +1574,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[5]" expand class="panel">
+          <v-expansion-panel v-model="panel[5]" id="panel5" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Dados das Receitas - Bovinos Para Abate e Consumo Próprio</h2>
@@ -2020,7 +2020,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[6]" expand class="panel">
+          <v-expansion-panel v-model="panel[6]" id="panel6" expand class="panel">
             <v-expansion-panel-content>
               <template v-slot:header>
                 <h2>Outras Receitas</h2>
@@ -2102,13 +2102,13 @@
                   </v-flex>
                 </v-flex>
               </v-layout>
-              <v-flex text-md-center text-sm-center text-xs-center>
-                <v-btn href="#graficos_das_receitas" color="primary">Ir para Gráficos das Receitas</v-btn>
+<v-flex  text-md-center text-sm-center text-xs-center>
+            <v-btn href="#graficos_das_receitas"  color="primary">Ir para Gráficos das Receitas</v-btn>
               </v-flex>
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[7]" expand class="panel">
+          <v-expansion-panel v-model="panel[7]" id="panel7" expand class="panel" >
             <v-expansion-panel-content>
               <v-layout row wrap>
                 <v-flex md6 text-xs-center>
@@ -2125,28 +2125,27 @@
         </v-form>
       </v-content>
     </v-container>
-    <v-btn
+    <!-- Botão de reduzir o linguição -->
+    <v-btn 
       absolute
       fab
-      transition="scale-transition"
+      small
+      transition="slide-y-reverse-transition"
       right
       dark
       color="teal"
       @click="none"
       class="botaoNone"
     >
-      <v-icon dark>remove</v-icon>
+      <v-icon dark>keyboard_arrow_down</v-icon>
     </v-btn>
-    <v-btn fab dark color="indigo">
-      <v-icon dark>add</v-icon>
-    </v-btn>
+
   </v-formulario>
 </template>
 <script>
 import Formulario from "../class/Formulario.js";
 import Dictionary from "../class/Dictionary.js";
 import PanelGraficosRebanho from "../components/panel/PanelGraficosRebanho.vue";
-import PanelGraficosRebanhoVue from "../components/panel/PanelGraficosRebanho.vue";
 export default {
   components: {
     "panel-graficos-rebanho": PanelGraficosRebanho
@@ -2159,7 +2158,7 @@ export default {
   data: () => ({
     formulario: new Formulario(),
     forme: "",
-    panel: []
+    panel: [1, 1, 1, 1, 1, 1, 1 ,0 , 1]
   }),
 
   updated() {
@@ -2197,7 +2196,7 @@ export default {
           db.simulacao
             .put({ id: 1, formularioDB: this.formulario })
             .then(function() {
-              window.location.href = "/#/";
+              window.location.href = '/#/';
               document.location.reload(true);
             });
         }
@@ -2206,9 +2205,16 @@ export default {
     clear() {
       this.formulario = new Formulario();
     },
+    // Fecha todos os paineis
     none() {
-      this.panel = [];
-      PanelGraficosRebanhoVue.panel = [1];
+      var verificaPanel = [1, 1, 1, 1, 1, 1, 1 ,0 , 1];
+      if(this.panel == verificaPanel){
+        alert("Todos os painéis estão fechados.");
+      }
+      else{
+        this.panel = [1, 1, 1, 1, 1, 1, 1 ,0 , 1];
+        PanelGraficosRebanho.panel = [1];
+      }
     }
   }
 };
@@ -2220,6 +2226,12 @@ h2 {
 
 .botaoNone {
   border: solid black 1px;
+  position: fixed;
+  margin-bottom: 0;
+  z-index: 997;
+  bottom: 45px;
+  right: 24px;
+
 }
 
 @media screen and (max-width: 991px) {

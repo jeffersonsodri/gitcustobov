@@ -23,6 +23,7 @@
           <!-- Conteúdo de navegação -->
           <v-list-tile-content>
             <v-list-tile-title class="white--text 45--text">{{link.text}}</v-list-tile-title>
+            <!-- <v-btn flat class="white--text" href="link.route">{{link.text}} </v-btn> -->
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -39,7 +40,7 @@ export default {
       link: [
         { icon: "dashboard", text: "Início", route: "/" },
         { icon: "folder", text: "Relatório", route: "/relatorio" },
-        { icon: 'email', text: 'Gráficos do Rebanho', route: '#graficos_do_rebanho'}
+        { icon: 'trending_up', text: 'Gráficos do Rebanho', route: '/graficos_do_rebanho'}
 
       ]
     };

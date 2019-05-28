@@ -1,7 +1,9 @@
   /*
   * DEFAULT 
   */
-
+  h2 {
+    color: #00695c;
+  }
 
  .flex-content {
   list-style: none;

@@ -1,37 +1,45 @@
 <template>
-  <v-expansion-panel v-model="panel[0]" expand class="panel">
-    <v-expansion-panel-content>
-      <template v-slot:header>
-        <h2>Gráficos do Rebanho</h2>
-      </template>
+<v-expansion-panel v-model="panel[0]" expand class="panel">
+        <v-expansion-panel-content>
+          <template v-slot:header>
+            <h2>Gráficos do Rebanho</h2>
+          </template>
 
-      <div class="grafico">
-        <v-layout row wrap>
-          <v-flex xs12 md6>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-cabeca/>
-            </v-card>
-          </v-flex>
+          <div class="grafico">
+            <v-layout row wrap>
 
-          <v-flex xs12 md6>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-ua/>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </div>
+              <v-flex xs12 md6>
+                <v-card>
+                  <tab-grafico-composicao-do-rebanho-por-cabeca/>
+                </v-card>
+              </v-flex>
 
-      <div class="grafico1">
-        <v-layout row wrap>
-          <v-flex xs12 md12>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-categoria-animal/>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </div>
-    </v-expansion-panel-content>
-  </v-expansion-panel>
+              <v-flex xs12 md6>
+                <v-card>
+                  <tab-grafico-composicao-do-rebanho-por-ua/>
+                </v-card>
+              </v-flex>
+
+              
+
+            </v-layout>
+          </div>
+
+          <div class="grafico1">
+            <v-layout row wrap>
+              <v-flex xs12 md12>
+                <v-card>
+                  <tab-grafico-composicao-do-rebanho-por-categoria-animal/>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </div>
+          
+          
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+
+    
 </template>
 <script>
 import TabGraficoComposicaoDoRebanhoPorCabeca from "../tabs/TabGraficoComposicaoDoRebanhoMedioPorCabeca.vue";
@@ -47,14 +55,11 @@ export default {
   },
 
   data: () => ({
-    panel: [0]
+    panel: [1]
   })
 };
 </script>
 <style scoped>
-h2 {
-  color: #00695c;
-}
 @media screen and (max-width: 991px) {
   .grafico {
     margin-top: 5%;

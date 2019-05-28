@@ -1,6 +1,7 @@
 <template>
   <v-layout v-resize="onResize" column class="lateral">
     <v-data-table
+      hide-actions
       :headers="headers6"
       :items="desserts6"
       class="elevation-1"
