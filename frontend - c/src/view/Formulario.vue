@@ -2102,13 +2102,13 @@
                   </v-flex>
                 </v-flex>
               </v-layout>
-<v-flex  text-md-center text-sm-center text-xs-center>
-            <v-btn href="#graficos_das_receitas"  color="primary">Ir para Gráficos das Receitas</v-btn>
+              <v-flex text-md-center text-sm-center text-xs-center>
+                <v-btn href="#graficos_das_receitas" color="primary">Ir para Gráficos das Receitas</v-btn>
               </v-flex>
             </v-expansion-panel-content>
           </v-expansion-panel>
 
-          <v-expansion-panel v-model="panel[7]" id="panel7" expand class="panel" >
+          <v-expansion-panel v-model="panel[7]" id="panel7" expand class="panel">
             <v-expansion-panel-content>
               <v-layout row wrap>
                 <v-flex md6 text-xs-center>
@@ -2125,21 +2125,27 @@
         </v-form>
       </v-content>
     </v-container>
-    <!-- Botão de reduzir o linguição -->
-    <v-btn 
-      absolute
-      fab
-      small
-      transition="slide-y-reverse-transition"
-      right
-      dark
-      color="teal"
-      @click="none"
-      class="botaoNone"
-    >
-      <v-icon dark>keyboard_arrow_down</v-icon>
-    </v-btn>
 
+    <!-- Botão de reduzir os painéis-->
+    <v-tooltip top>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          v-on="on"
+          absolute
+          fab
+          small
+          transition="slide-y-reverse-transition"
+          right
+          dark
+          color="teal"
+          @click="none"
+          class="botaoNone"
+        >
+          <v-icon dark>keyboard_arrow_down</v-icon>
+        </v-btn>
+      </template>
+      <span>Fechar Painéis</span>
+    </v-tooltip>
   </v-formulario>
 </template>
 <script>
@@ -2158,7 +2164,8 @@ export default {
   data: () => ({
     formulario: new Formulario(),
     forme: "",
-    panel: [1, 1, 1, 1, 1, 1, 1 ,0 , 1]
+    panel: [1, 1, 1, 1, 1, 1, 1, 0, 1],
+    PainelGraficosRebanho: PanelGraficosRebanho
   }),
 
   updated() {
@@ -2196,7 +2203,7 @@ export default {
           db.simulacao
             .put({ id: 1, formularioDB: this.formulario })
             .then(function() {
-              window.location.href = '/#/';
+              window.location.href = "/#/";
               document.location.reload(true);
             });
         }
@@ -2207,13 +2214,21 @@ export default {
     },
     // Fecha todos os paineis
     none() {
-      var verificaPanel = [1, 1, 1, 1, 1, 1, 1 ,0 , 1];
-      if(this.panel == verificaPanel){
-        alert("Todos os painéis estão fechados.");
+      var verificaPanel = [1, 1, 1, 1, 1, 1, 1, 0, 1];
+      let flag = false;
+      //Verifica se todos os painéis estão fechados
+      for (let i = 0; i < this.panel.length; i++) {
+        if (verificaPanel[i] != this.panel[i]) {
+          flag = true;
+          break;
+        }
       }
-      else{
-        this.panel = [1, 1, 1, 1, 1, 1, 1 ,0 , 1];
-        PanelGraficosRebanho.panel = [1];
+
+      if (!flag) {
+        alert("Todos os painéis estão fechados.");
+      } else {
+        this.panel = [1, 1, 1, 1, 1, 1, 1, 0, 1];
+        this.PanelGraficosRebanho.panel = [1];
       }
     }
   }
@@ -2231,7 +2246,7 @@ h2 {
   z-index: 997;
   bottom: 45px;
   right: 24px;
-
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 
 @media screen and (max-width: 991px) {

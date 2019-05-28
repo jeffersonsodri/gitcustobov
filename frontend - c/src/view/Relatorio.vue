@@ -3,29 +3,26 @@
     <v-content>
       <h1>Relatórios</h1>
       <br>
-
       <panel-tabela-rebanho-reproducao/>
       <panel-tabela-rebanho-recria-engorda/>
       <panel-tabela-rebanho-total/>
       <panel-graficos-rebanho/>
     </v-content>
-    <v-layout  v-scroll="onScroll" >
-      
-      <v-btn 
-        v-if="showButton" 
-        absolute
-        fab
-        transition="scale-transition"
-        small
-        right
-        dark
-        color="teal"
-        @click="none"
-        class="botaoNone"
-      >
-        <v-icon dark>keyboard_arrow_down</v-icon>
-      </v-btn>
-    </v-layout>
+
+    <v-btn
+      v-if="showButton"
+      absolute
+      fab
+      transition="scale-transition"
+      small
+      right
+      dark
+      color="teal"
+      @click="none"
+      class="botaoNone"
+    >
+      <v-icon dark>keyboard_arrow_down</v-icon>
+    </v-btn>
   </v-container>
 </template>
 <script>
@@ -50,17 +47,18 @@ export default {
     resultadoCalculoReproducao: "",
     form: "",
     active: null,
-    showButton: false
+    showButton: false,
+    offsetTop: 0
   }),
   methods: {
     none() {
       this.panel = [];
     },
-    onScroll(e){
-      if(e.target.scrollTop > 50){
+    onScroll(e) {
+      this.offsetTop = goTo.number;
+      if (goTo.number > 2) {
         this.showButton = true;
-      }
-      else this.showButton = false;
+      } else this.showButton = false;
     }
   }
 };
@@ -76,7 +74,6 @@ h2 {
   z-index: 997;
   bottom: 45px;
   right: 24px;
-
 }
 @media screen and (max-width: 991px) {
   .container {
