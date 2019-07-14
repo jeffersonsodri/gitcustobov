@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "apexcharts": "^3.6.9",
-    "bibliotecadecalculos": "^1.0.16",
+    "bibliotecadecalculos": "^1.0.19",
     "chart.js": "^2.8.0",
     "local-web-server": "^2.6.1",
     "register-service-worker": "^1.6.2",

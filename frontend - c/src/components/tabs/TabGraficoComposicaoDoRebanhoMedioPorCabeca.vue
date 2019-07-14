@@ -1,16 +1,11 @@
 <template>
-<v-flex>
-<v-tabs  v-model="active"  color="#00695c" dark slider-color="blue">
-
-      <v-flex xs6 sm6 md6 >
-        
-                <v-tab  class="texto"> Percentual</v-tab>
-        
+  <v-flex>
+    <v-tabs v-model="active" color="#00695c" dark slider-color="blue">
+      <v-flex xs6 sm6 md6>
+        <v-tab class="texto">Percentual</v-tab>
       </v-flex>
       <v-flex xs6 sm6 md6>
-        
-                <v-tab  class="texto"> Absoluto</v-tab>
-        
+        <v-tab class="texto">Absoluto</v-tab>
       </v-flex>
 
       <v-tab-item v-for="n in 2" :key="n">

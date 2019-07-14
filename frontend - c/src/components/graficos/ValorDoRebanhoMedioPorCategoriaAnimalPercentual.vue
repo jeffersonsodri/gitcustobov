@@ -75,16 +75,16 @@ export default {
       .then(
         g => (
           //recria/ engorda parseFloat(conta.toFixed(2));
-          (this.series[0] = g[0].composicaoValorCategoriaTouro()),
-          (this.series[1] = g[0].composicaoValorCategoriaVaca()),
-          (this.series[2] = g[0].composicaoValorCategoriaFemeas36()),
-          (this.series[3] = g[0].composicaoValorCategoriaFemeas2436()),
-          (this.series[4] = g[0].composicaoValorCategoriaFemeas1224()),
-          (this.series[5] = g[0].composicaoValorCategoriaFemeas012()),
-          (this.series[6] = g[0].composicaoValorCategoriaMachos012()),
-          (this.series[7] = g[0].composicaoValorCategoriaMachos1224()),
-          (this.series[8] = g[0].composicaoValorCategoriaMachos2436()),
-          (this.series[9] = g[0].composicaoValorCategoriaMachos36())
+          (this.series[0] = g[0].composicaoValorCategoriaTouro() * 100),
+          (this.series[1] = g[0].composicaoValorCategoriaVaca() * 100),
+          (this.series[2] = g[0].composicaoValorCategoriaFemeas36() * 100),
+          (this.series[3] = g[0].composicaoValorCategoriaFemeas2436() * 100),
+          (this.series[4] = g[0].composicaoValorCategoriaFemeas1224() * 100),
+          (this.series[5] = g[0].composicaoValorCategoriaFemeas012() * 100),
+          (this.series[6] = g[0].composicaoValorCategoriaMachos012() * 100),
+          (this.series[7] = g[0].composicaoValorCategoriaMachos1224() * 100),
+          (this.series[8] = g[0].composicaoValorCategoriaMachos2436() * 100),
+          (this.series[9] = g[0].composicaoValorCategoriaMachos36() * 100)
         )
       );
   }

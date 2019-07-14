@@ -9,20 +9,30 @@
       <panel-graficos-rebanho/>
     </v-content>
 
-    <v-btn
-      v-if="showButton"
-      absolute
-      fab
-      transition="scale-transition"
-      small
-      right
-      dark
-      color="teal"
-      @click="none"
-      class="botaoNone"
-    >
-      <v-icon dark>keyboard_arrow_down</v-icon>
-    </v-btn>
+    <!-- Botão de reduzir os painéis-->
+    <v-tooltip top>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          v-on="on"
+          v-if="showButton"
+          absolute
+          fab
+          transition="slide-y-reverse-transition"
+          right
+          dark
+          color="teal"
+          @click="none"
+          class="botaoNone"
+        >
+          <v-icon dark>keyboard_arrow_down</v-icon>
+        </v-btn>
+      </template>
+      <span>Fechar Painéis</span>
+    </v-tooltip>
+    <v-snackbar v-model="snackbar" right :timeout="4000" top>
+      {{ text }}
+      <v-btn color="pink" flat @click="snackbar = false">Close</v-btn>
+    </v-snackbar>
   </v-container>
 </template>
 <script>

@@ -1,4 +1,3 @@
-
 <template>
   <v-flex>
     <v-tabs v-model="active" color="#00695c" dark slider-color="blue">
@@ -19,15 +18,14 @@
   </v-flex>
 </template>
 <script>
-import ComposicaoDoRebanhoMedioPorUaPercentual from "../graficos/ComposicaoDoRebanhoMedioPorUaPercentual.vue";
-import ComposicaoDoRebanhoMedioPorUaAbsoluto from "../graficos/ComposicaoDoRebanhoMedioPorUaAbsoluto.vue";
+import ComposicaoDaReceitaDeVendaDeAnimaisPercentual from "../graficos/ComposicaoDaReceitaDeVendaDeAnimaisPercentual.vue";
+import ComposicaoDaReceitaDeVendaDeAnimaisAbsoluto from "../graficos/ComposicaoDaReceitaDeVendaDeAnimaisAbsoluto.vue";
 
 export default {
   components: {
-    "grafico-pizza-percentual": ComposicaoDoRebanhoMedioPorUaPercentual,
-    "grafico-pizza-absoluto": ComposicaoDoRebanhoMedioPorUaAbsoluto
+    "grafico-pizza-percentual": ComposicaoDaReceitaDeVendaDeAnimaisPercentual,
+    "grafico-pizza-absoluto": ComposicaoDaReceitaDeVendaDeAnimaisAbsoluto
   },
-
   data: () => ({
     active: null
   })
@@ -41,15 +39,3 @@ export default {
   background-color: #00695c;
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-

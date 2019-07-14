@@ -25,22 +25,16 @@ export default {
 };
 </script>
 <style scoped>
-
 @media screen and (max-width: 991px) {
-  
-
   .panel {
     margin-top: 3%;
     padding-bottom: 3%;
     background-color: white;
     box-shadow: 0 4px 15px black;
   }
-
-  
 }
 
 @media screen and (min-width: 992px) {
- 
   .panel {
     margin-top: 2%;
     padding-bottom: 1%;
@@ -48,5 +42,4 @@ export default {
     box-shadow: 0 4px 10px black;
   }
 }
-
 </style>

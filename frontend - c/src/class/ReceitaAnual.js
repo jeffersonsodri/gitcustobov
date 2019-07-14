@@ -3,9 +3,10 @@ export default class ReceitaAnual {
     constructor(formulario = '') {
 
         this.femeas36PesoMedioKGVivo = formulario.femeas36PesoMedioKGVivo;
+
         this.femeas36cabeca = formulario.femeas36cabeca;
         this.femeas36ValorUnitarioRSCabeca = formulario.femeas36ValorUnitarioRSCabeca;
-        
+
 
         this.femeas2436PesoMedioKGVivo = formulario.femeas2436PesoMedioKGVivo;
         this.femeas2436cabeca = formulario.femeas2436cabeca;
@@ -36,7 +37,7 @@ export default class ReceitaAnual {
         this.machos36ValorUnitarioRSCabeca = formulario.machos36ValorUnitarioRSCabeca;
 
         this.touroPesoMedioKGVivo = formulario.touroPesoMedioKGVivo;
-        this.tourocabeca = formulario.tourocabeca;
+        this.tourocabeca = parseInt(formulario.tourocabeca);
         this.touroValorUnitarioRSCabeca = formulario.touroValorUnitarioRSCabeca;
 
     }

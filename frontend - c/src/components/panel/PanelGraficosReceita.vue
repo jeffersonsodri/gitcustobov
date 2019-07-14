@@ -2,36 +2,8 @@
   <v-expansion-panel v-model="panel[0]" expand class="panel">
     <v-expansion-panel-content>
       <template v-slot:header>
-        <h2>Gráficos do Rebanho</h2>
+        <h2>Gráficos das Receitas</h2>
       </template>
-
-      <v-container grid-list-md text-xs-center text-md-center>
-        <v-layout row wrap>
-          <v-flex xs12 sm12 md6>
-            <div class="divider2">
-              <span>
-                <b>Rebanho Médio Por Cabeça</b>
-              </span>
-            </div>
-            <v-divider></v-divider>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-cabeca/>
-            </v-card>
-          </v-flex>
-
-          <v-flex xs12 sm12 md6>
-            <div class="divider2">
-              <span>
-                <b>Rebanho Médio Por UA</b>
-              </span>
-            </div>
-            <v-divider></v-divider>
-            <v-card>
-              <tab-grafico-composicao-do-rebanho-por-ua/>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
 
       <v-container grid-list-md text-xs-center text-md-center>
         <v-layout row wrap>
@@ -39,12 +11,12 @@
             <v-flex xs12 sm12 md7>
               <div class="divider2">
                 <span>
-                  <b>Valor (R$) do Rebanho Médio Por Categoria Animal</b>
+                  <b>Composição da receita de venda de animais (R$)</b>
                 </span>
               </div>
               <v-divider></v-divider>
               <v-card>
-                <tab-grafico-composicao-do-rebanho-por-categoria-animal/>
+                <tab-grafico-receita/>
               </v-card>
             </v-flex>
           </v-layout>
@@ -54,15 +26,11 @@
   </v-expansion-panel>
 </template>
 <script>
-import TabGraficoComposicaoDoRebanhoPorCabeca from "@/components/tabs/TabGraficoComposicaoDoRebanhoMedioPorCabeca.vue";
-import TabGraficoComposicaoDoRebanhoPorUa from "../tabs/TabGraficoComposicaoDoRebanhoMedioPorUa.vue";
-import TabGraficoValorDoRebanhoMedioPorCategoriaAnimal from "../tabs/TabGraficoValorDoRebanhoMedioPorCategoriaAnimal.vue";
+import TabGraficoDaReceita from "../tabs/TabGraficoDaReceita.vue";
 import BotaoVisualizarFormulario from "../botoes/BotaoVisualizarFormulario.vue";
 export default {
   components: {
-    "tab-grafico-composicao-do-rebanho-por-cabeca": TabGraficoComposicaoDoRebanhoPorCabeca,
-    "tab-grafico-composicao-do-rebanho-por-ua": TabGraficoComposicaoDoRebanhoPorUa,
-    "tab-grafico-composicao-do-rebanho-por-categoria-animal": TabGraficoValorDoRebanhoMedioPorCategoriaAnimal,
+    "tab-grafico-receita": TabGraficoDaReceita,
     "botao-visualizar-formulario": BotaoVisualizarFormulario
   },
 

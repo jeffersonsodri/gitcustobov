@@ -1,6 +1,6 @@
 <template>
   <v-layout v-resize="onResize" column class="lateral">
-    <v-data-table   
+    <v-data-table
       hide-actions
       :headers="headers10"
       :items="desserts10"
@@ -81,7 +81,7 @@ export default {
       .get(1)
       .then(f => (this.formulario = new Formulario(f.formularioDB)))
       .then(function(form) {
-         console.log(form);
+        console.log(form);
         console.log(form.RebanhoDeRecria);
         return BibliotecaDeCalculos.RebanhoTotal(
           BibliotecaDeCalculos.RebanhoDeReproducao(form.RebanhoDeReproducao),
